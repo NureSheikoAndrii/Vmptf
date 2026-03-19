@@ -1,1 +1,63 @@
+#Рівень 1 завдання (3)
+#отримуємо два числа від користувача які він введе
+num1 = int(input("Введіть перше число: "))
+num2 = int(input("Введіть друге число: "))
+
+summa = num1 + num2
+
+print("Сума чисел:", summa)
+
+#Рівень 2 завдання (3)
+#отримуємо число від користувача
+number = int(input("Введіть число: "))
+
+#робимо перевірку та виведемо результат
+if number <= 1:
+    print("Це число не є простим")
+else:
+    is_prime = True
+
+    for i in range(2, number):
+        if number % i == 0:
+            is_prime = False
+            break
+
+    if is_prime:
+        print("Це просте число")
+    else:
+        print("Це число не є простим")
+
+#Рівень 3 завдання (3)
+class Calculator:
+
+    #додавання
+    def add(self, a, b):
+        return a + b
+
+    #віднімання
+    def subtract(self, a, b):
+        return a - b
+
+    #множення
+    def multiply(self, a, b):
+        return a * b
+
+    #ділення
+    def divide(self, a, b):
+        if b == 0:
+            return "Помилка: ділення на нуль!"
+        return a / b
+
+#створюємо об'єкт класу
+calc = Calculator()
+
+#вхідні дані
+a = int(input("Введіть перше число: "))
+b = int(input("Введіть другек число: "))
+
+# виводимо весь результат по діям
+print("Додавання:", calc.add(a, b))
+print("Віднімання:", calc.subtract(a, b))
+print("Множення:", calc.multiply(a, b))
+print("Ділення:", calc.divide(a, b))
 
