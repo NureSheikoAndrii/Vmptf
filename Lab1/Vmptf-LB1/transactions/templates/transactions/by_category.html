@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Транзакції за категорією</title>
+</head>
+<body>
+    <h1>Категорія: {{ category.name }}</h1>
+    <ul>
+        {% for transaction in transactions %}
+            <li>{{ transaction.description }} - {{ transaction.amount }} грн ({{ transaction.get_transaction_type_display }})</li>
+        {% empty %}
+            <li>Немає транзакцій</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'transaction_list' %}">Назад</a>
+</body>
+</html>

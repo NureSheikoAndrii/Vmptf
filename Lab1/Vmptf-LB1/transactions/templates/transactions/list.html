@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Всі транзакції</title>
+</head>
+<body>
+    <h1>Всі транзакції</h1>
+    <a href="{% url 'add_transaction' %}">Додати транзакцію</a>
+
+    <h2>Категорії</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'transactions_by_category' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Транзакції</h2>
+    <ul>
+        {% for transaction in transactions %}
+            <li>{{ transaction.description }} - {{ transaction.amount }} грн ({{ transaction.get_transaction_type_display }}) - {{ transaction.category.name }}</li>
+        {% empty %}
+            <li>Немає транзакцій</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
